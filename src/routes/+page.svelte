@@ -59,9 +59,12 @@
 		<div class="h-5"></div>
 
 		<p>
-			Ich bin freiberuflicher Berater und Entwickler für kooperatives
-			Wirtschaften. Ich unterstütze Organisationen dabei, ihre Prozesse und
-			Strukturen zu verbessern und ihre Software zu entwickeln.
+			Hallo! Ich bin promovierter Wirtschaftsforscher, Software-Entwickler, und
+			Berater. Ich unterstütze Organisationen bei der Entwicklung von Prozessen
+			und Strukturen sowie bei der Umsetzung von maßgeschneiderten
+			Software-Lösungen. Mein Schwerpunkt und meine Leidenschaft liegen dabei
+			auf Projekten für gemeinschaftliches, nachhaltiges und
+			bedürfnis-orientiertes Wirtschaften.
 		</p>
 
 		<div>
