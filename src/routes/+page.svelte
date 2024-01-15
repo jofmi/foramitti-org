@@ -44,9 +44,10 @@
 
 <div class="h-full mx-auto flex justify-center items-center">
 	<div class="space-y-5 max-w-3xl w-full m-10 md:m-24 lg:mt-48">
-		<h1 class="h1">Joël Foramitti</h1>
-		<p class="text-xl">Wissen und Werkzeuge für kooperatives Wirtschaften</p>
-
+		<div>
+			<h1 class="h1 mb-2">Joël Foramitti</h1>
+			<p class="text-xl">Wissen und Werkzeuge für kooperatives Wirtschaften</p>
+		</div>
 		<div class="flex flex-wrap justify-left text-3xl space-x-4">
 			{#each icons as { name, icon, href }}
 				<a {href} target="_blank"
@@ -58,18 +59,23 @@
 		<div class="h-5"></div>
 
 		<p>
-			Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-			eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-			voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-			clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-			amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-			nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-			diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-			Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
-			sit amet.
+			Ich bin freiberuflicher Berater und Entwickler für kooperatives
+			Wirtschaften. Ich unterstütze Organisationen dabei, ihre Prozesse und
+			Strukturen zu verbessern und ihre Software zu entwickeln.
 		</p>
 
-		<div class="h-5"></div>
+		<div>
+			<a href="mailto:joel@foramitti.org">
+				<button
+					type="button"
+					class="btn variant-filled rounded-md hover:scale-[1.04] duration-100 font-bold"
+				>
+					Kontakt aufnehmen
+				</button>
+			</a>
+		</div>
+
+		<div class="pf-divider"></div>
 
 		<h2 class="h2">Partner*innen</h2>
 		<div
@@ -84,15 +90,34 @@
 				</a>
 			{/each}
 		</div>
+
+		<div class="pf-divider"></div>
+
+		<h2 class="h2">Impressum</h2>
+		<p>
+			<span class="font-bold">Joël Foramitti</span> <br />
+			Email: <a href="mailto:joel@foramitti.org">joel@foramitti.org</a>
+		</p>
+		<p>
+			<a href="https://smartat.coop">
+				<span class="font-bold">smart@work GmbH</span>
+			</a>
+			<br />Gumpendorferstraße 63b
+			<br />1060 Wien
+		</p>
+		<p>
+			UID Nr.: ATU75116919
+			<br />FN 525600 t
+		</p>
 	</div>
 </div>
 
 <style lang="postcss">
-	.pf-card {
-		@apply bg-white rounded-md h-36 duration-300 transition-all px-4 py-3 hover:scale-[1.03] shadow-[1px_1px_15px_3px] shadow-white/20;
+	.pf-divider {
+		@apply h-5;
 	}
 
-	.pf-shadow {
-		@apply shadow-[1px_1px_15px_3px] shadow-white/20 hover:shadow-white/35 hover:shadow-[1px_1px_15px_5px];
+	.pf-card {
+		@apply bg-white rounded-md h-36 duration-300 transition-all px-4 py-3 hover:scale-[1.03] shadow-[1px_1px_15px_3px] shadow-white/20;
 	}
 </style>
