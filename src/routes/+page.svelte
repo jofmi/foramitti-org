@@ -70,7 +70,7 @@
 					type="button"
 					class="btn variant-filled rounded-md hover:scale-[1.04] duration-100 font-bold"
 				>
-					Kontakt aufnehmen
+					<Icon icon="bi:envelope-at-fill" class="mr-2" /> Kontakt aufnehmen
 				</button>
 			</a>
 		</div>
