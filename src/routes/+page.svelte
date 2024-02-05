@@ -98,7 +98,9 @@
 <Modal components={modalRegistry} />
 
 <div class="h-full mx-auto flex justify-center items-center">
-	<div class="space-y-20 max-w-3xl w-full m-10 md:m-24 lg:mt-48">
+	<div
+		class="space-y-10 sm:space-y-20 max-w-4xl w-full p-5 sm:p-10 md:p-24 mt-10 lg:mt-35"
+	>
 		<div id="pf-title" class="flex flex-wrap gap-10 items-center align-middle">
 			<!-- <div class="drop-shadow-md">
 				<img
@@ -190,7 +192,11 @@
 				{#each partners as { name, href, logo }}
 					<a {href} target="_blank">
 						<div class="pf-box h-36 flex items-center">
-							<img src={logo} alt={name} class="m-auto max-h-[7rem] max-w-48" />
+							<img
+								src={logo}
+								alt={name}
+								class="m-auto max-h-[7rem] max-w-[10rem]"
+							/>
 						</div>
 					</a>
 				{/each}
@@ -229,7 +235,7 @@
 		</div>
 
 		<div class="pf-box px-6 py-5 text-lg flex flex-wrap items-end">
-			<div>
+			<div class="w-full sm:w-1/2">
 				<span class="font-semibold">Joël Foramitti</span>
 				{#each icons as { label, icon, href }}
 					<a {href} target="_blank" class="flex flex-row items-center gap-2">
@@ -239,15 +245,15 @@
 				{/each}
 			</div>
 			<div class="grow"></div>
-			<div class="flex flex-col">
+			<div class="flex flex-col items-start sm:items-end">
 				<button
-					class="link-on-white text-right"
+					class="link-on-white"
 					on:click={() => modalStore.trigger(impressum)}
 				>
 					Impressum
 				</button>
 				<button
-					class="link-on-white text-right"
+					class="link-on-white"
 					on:click={() => modalStore.trigger(privacy)}
 				>
 					Datenschutz
