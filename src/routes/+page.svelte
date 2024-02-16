@@ -76,12 +76,15 @@
 			href: 'https://collectivo.io',
 			date: '2022 - heute',
 			title: 'Collectivo',
-			subtitle: 'Open-Source Plattform für Partizipation und Datenverwaltung'
+			tags: ['Open-Source', 'Partizipation', 'Datenbank'],
+			subtitle:
+				'Open-Source Plattform für Partizipation, Kommunikation und Datenverwaltung'
 		},
 		{
 			href: 'https://augustin.or.at/mit-bargeld-oder-karte/',
 			title: 'Augustina',
 			date: '2023',
+			tags: ['Open-Source'],
 			subtitle:
 				'Open-Source System für bargeldloses Bezahlen von Straßenzeitungen'
 		},
@@ -98,20 +101,14 @@
 <Modal components={modalRegistry} />
 
 <div class="h-full mx-auto flex justify-center items-center">
-	<div
-		class="space-y-10 sm:space-y-20 max-w-4xl w-full p-5 sm:p-10 md:p-24 mt-10 lg:mt-35"
-	>
-		<div id="pf-title" class="flex flex-wrap gap-10 items-center align-middle">
-			<!-- <div class="drop-shadow-md">
-				<img
-					src="images/joel.jpg"
-					alt="Joël Foramitti"
-					class="rounded-full w-40 overflow-hidden"
-				/>
-			</div> -->
-			<div>
+	<div class="space-y-10 sm:space-y-20 max-w-5xl w-full p-10 md:p-24 lg:mt-35">
+		<div
+			id="pf-title"
+			class="flex flex-row gap-10 items-center justify-between"
+		>
+			<div class="w-2/3">
 				<h1 class="h1 mb-2">Joël Foramitti</h1>
-				<p class="text-2xl italic mb-4">
+				<p class="text-xl md:text-2xl italic mb-4">
 					Wissen und Werkzeuge für kooperatives Wirtschaften
 				</p>
 				<div class="flex flex-wrap justify-left text-3xl space-x-4">
@@ -122,15 +119,21 @@
 					{/each}
 				</div>
 			</div>
+			<div class="drop-shadow-md">
+				<img
+					src="images/joel.jpg"
+					alt="Joël Foramitti"
+					class="rounded-full w-40 overflow-hidden"
+				/>
+			</div>
 		</div>
 
 		<div id="pf-intro" class="space-y-4">
 			<p class="text-lg">
-				Hallo! Ich bin selbstständiger Software-Entwickler und promovierter
-				Wirtschaftsforscher. Ich unterstütze Organisationen bei der Entwicklung
-				von Prozessen und Strukturen für Partizipation und Selbstorganisation -
-				sowie bei der Umsetzung von maßgeschneiderten Software-Lösungen. Mein
-				Schwerpunkt und meine Leidenschaft liegen dabei auf Projekten für <a
+				Hallo! Ich forsche zu alternativen Wirtschaftsformen und unterstütze
+				Organisationen bei der Entwicklung von digitalen Lösungen für
+				Partizipationsprozesse und Selbstorganisation. Mein Schwerpunkt liegt
+				dabei auf Projekten für <a
 					href="https://se-conference.uni-graz.at/de/politik/oesterreich/#c541464"
 					target="_blank"
 					class="font-bold italic"
@@ -149,34 +152,34 @@
 		</div>
 
 		<div id="pf-services" class="space-y-6">
-			<h2 class="h2">Schwerpunkte</h2>
+			<h2 class="h2">Angebote</h2>
 
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 				<div class="pf-box w-full px-6 py-5 space-y-2">
 					<h3 class="h3">Software-Entwicklung</h3>
 					<p class="text-md">
-						Ich biete maßgeschneiderte Lösungen für digitale Plattformen und
-						Datenbanksysteme, basierend auf <a
-							href="#projects"
-							class="link-on-white">Open-Source Technologien</a
-						>.
+						Ich biete <a href="#projects" class="link-on-white"
+							>maßgeschneiderte Lösungen</a
+						> für Datenbanksysteme und digitale Plattformen mit einem Fokus auf Open-Source
+						Technologien.
 					</p>
 					<p class="text-md">
-						Dabei begleite ich den gesamten Entwicklungsprozess von der
-						Konzeption bis zur Umsetzung und langfristigen Wartung.
+						Dabei begleite ich den gesamten Entwicklungs-Prozess von der
+						gemeinsamen Konzeption bis zur Umsetzung und langfristigen Wartung.
 					</p>
 				</div>
 
 				<div class="pf-box w-full px-6 py-5 space-y-2">
 					<h3 class="h3">Forschung & Beratung</h3>
 					<p>
-						Ich unterstütze Organisationen bei der Entwicklung von Prozessen und
-						Strukturen zu Partizipation und Selbstorganisation.
+						Ich biete Unterstützung bei der Entwicklung von Prozessen und
+						Strukturen für Partizipation und Selbstorganisation.
 					</p>
 					<p>
-						Dabei verbinde ich wissenschaftliche Methoden mit praktischer
-						Erfahrungen aus <a href="#partners" class="link-on-white"
-							>kooperativen Wirtschaftsprojekten</a
+						Dabei verbinde ich meinen wissenschaftlichen Hintergrund mit
+						praktischer Erfahrungen aus <a
+							href="#partners"
+							class="link-on-white">kooperativen Wirtschaftsprojekten</a
 						>.
 					</p>
 				</div>
@@ -184,7 +187,7 @@
 		</div>
 
 		<div id="pf-services" class="space-y-6">
-			<h2 class="h2">Partner*innen</h2>
+			<h2 class="h2">Kollektive</h2>
 			<div
 				id="partners"
 				class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
@@ -204,7 +207,7 @@
 		</div>
 
 		<div id="projects" class="space-y-6">
-			<h2 class="h2">Projekte</h2>
+			<h2 class="h2">Referenzen</h2>
 
 			<div
 				id="projects"
