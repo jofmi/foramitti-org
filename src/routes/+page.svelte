@@ -156,7 +156,7 @@
 			<ul class="list-inside list-disc text-md pf-box p-5">
 				<li>
 					<span class="font-bold">02.2024 - heute</span>: Selbstständig,
-					Wirtschaftsforscher & Software-Entwickler
+					Software-Entwickler & Ökologischer Ökonom
 				</li>
 				<li>
 					<span class="font-bold">09.2022 - heute</span>: Operatives Team, MILA
