@@ -104,7 +104,7 @@
 	<div class="space-y-10 sm:space-y-20 max-w-5xl w-full p-10 md:p-24 lg:mt-35">
 		<div
 			id="pf-title"
-			class="flex flex-row gap-10 items-center justify-between"
+			class="flex flex-row gap-5 md:gap-10 items-center justify-between"
 		>
 			<div class="w-2/3">
 				<h1 class="h1 mb-2">Joël Foramitti</h1>
@@ -151,6 +151,32 @@
 			</div> -->
 		</div>
 
+		<div id="pf-cv" class="space-y-6">
+			<h2 class="h2">Hintergrund</h2>
+			<ul class="list-inside list-disc text-md pf-box p-5">
+				<li>
+					<span class="font-bold">02.2024 - heute</span>: Selbstständig,
+					Wirtschaftsforscher & Software-Entwickler
+				</li>
+				<li>
+					<span class="font-bold">09.2022 - heute</span>: Operatives Team, MILA
+					Mitmach-Supermarkt e. G.
+				</li>
+				<li>
+					<span class="font-bold">09.2018 - 09.2022</span>: Ph.D. Ökologische
+					Ökonomik, Vrije Universiteit Amsterdam
+				</li>
+				<li>
+					<span class="font-bold">09.2017 - 05.2018</span>: M.Sc.
+					Umweltwissenschaften, Universitat Autònoma de Barcelona
+				</li>
+				<li>
+					<span class="font-bold">10.2013 - 01.2017</span>: B.Sc. Technische
+					Physik, Technische Universität Wien
+				</li>
+			</ul>
+		</div>
+
 		<div id="pf-services" class="space-y-6">
 			<h2 class="h2">Angebote</h2>
 
@@ -158,9 +184,11 @@
 				<div class="pf-box w-full px-6 py-5 space-y-2">
 					<h3 class="h3">Software-Entwicklung</h3>
 					<p class="text-md">
-						Ich biete <a href="#projects" class="link-on-white"
+						Ich biete
+						<a href="#projects" class="link-on-white"
 							>maßgeschneiderte Lösungen</a
-						> für Datenbanksysteme und digitale Plattformen mit einem Fokus auf Open-Source
+						>
+						für Datenbanksysteme und digitale Plattformen mit einem Fokus auf Open-Source
 						Technologien.
 					</p>
 					<p class="text-md">
@@ -230,7 +258,7 @@
 			<a href="mailto:joel@foramitti.org">
 				<button
 					type="button"
-					class="btn font-bold text-2xl rounded-md bg-primary-900 drop-shadow-md w-full px-6 py-5 text-white center"
+					class="btn font-bold text-lg md:text-2xl rounded-md bg-primary-900 drop-shadow-md w-full px-6 py-5 text-white center"
 				>
 					<Icon icon="bi:envelope-at-fill" class="mr-2" /> Jetzt Kontakt aufnehmen
 				</button>
