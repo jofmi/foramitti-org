@@ -7,6 +7,19 @@
 	<div class="w-modal-wide bg-white p-10 rounded-md space-y-2">
 		<h2 class="h2">Impressum</h2>
 		<p>
+			Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch,
+			§63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz. <br
+			/><br />
+
+			Joël Foramitti<br />
+			Tivoligasse 38/1/7<br />
+			1120 Wien<br />
+			Österreich<br /><br />
+
+			Unternehmensgegenstand: IT Dienstleistungen<br />
+			UID-Nummer: ATU80431267<br />
+			E-Mail: info@foramitti.org<br /><br />
+
 			Joël Foramitti arbeitet teilweise innerhalb seines
 			Unternehmensgegenstandes angestellt über die smart@work GmbH und führt aus
 			dieser Anstellung heraus die Aufträge auf Werkvertragsbasis aus.
