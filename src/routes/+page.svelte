@@ -29,8 +29,8 @@
 	const icons = [
 		{
 			name: 'Email',
-			label: 'joel@foramitti.org',
-			href: 'mailto:joel@foramitti.org',
+			label: 'info@foramitti.org',
+			href: 'mailto:info@foramitti.org',
 			icon: 'bi:envelope-at-fill'
 		},
 		{
@@ -109,7 +109,7 @@
 			<div class="w-2/3">
 				<h1 class="h1 mb-2">Joël Foramitti</h1>
 				<p class="text-xl md:text-2xl italic mb-4">
-					Wissen und Werkzeuge für kooperatives Wirtschaften
+					Ökologischer Ökonom & Software Entwickler
 				</p>
 				<div class="flex flex-wrap justify-left text-3xl space-x-4">
 					{#each icons as { name, icon, href }}
@@ -143,7 +143,7 @@
 			</p>
 
 			<!-- <div class="">
-				<a href="mailto:joel@foramitti.org">
+				<a href="mailto:info@foramitti.org">
 					<button type="button" class="btn font-bold pf-box">
 						<Icon icon="bi:envelope-at-fill" class="mr-2" /> Kontakt aufnehmen
 					</button>
@@ -214,12 +214,9 @@
 			</div>
 		</div>
 
-		<div id="pf-services" class="space-y-6">
+		<div id="partners" class="space-y-6">
 			<h2 class="h2">Kollektive</h2>
-			<div
-				id="partners"
-				class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-			>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 				{#each partners as { name, href, logo }}
 					<a {href} target="_blank">
 						<div class="pf-box h-36 flex items-center">
@@ -255,7 +252,7 @@
 			</div>
 		</div>
 		<div>
-			<a href="mailto:joel@foramitti.org">
+			<a href="mailto:info@foramitti.org">
 				<button
 					type="button"
 					class="btn font-bold text-lg md:text-2xl rounded-md bg-primary-900 drop-shadow-md w-full px-6 py-5 text-white center"
