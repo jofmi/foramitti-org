@@ -214,23 +214,6 @@
 			</div>
 		</div>
 
-		<div id="partners" class="space-y-6">
-			<h2 class="h2">Kollektive</h2>
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-				{#each partners as { name, href, logo }}
-					<a {href} target="_blank">
-						<div class="pf-box h-36 flex items-center">
-							<img
-								src={logo}
-								alt={name}
-								class="m-auto max-h-[7rem] max-w-[10rem]"
-							/>
-						</div>
-					</a>
-				{/each}
-			</div>
-		</div>
-
 		<div id="projects" class="space-y-6">
 			<h2 class="h2">Referenzen</h2>
 
@@ -251,6 +234,24 @@
 				{/each}
 			</div>
 		</div>
+
+		<div id="partners" class="space-y-6">
+			<h2 class="h2">Partner*innen</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+				{#each partners as { name, href, logo }}
+					<a {href} target="_blank">
+						<div class="pf-box h-36 flex items-center">
+							<img
+								src={logo}
+								alt={name}
+								class="m-auto max-h-[7rem] max-w-[10rem]"
+							/>
+						</div>
+					</a>
+				{/each}
+			</div>
+		</div>
+
 		<div>
 			<a href="mailto:info@foramitti.org">
 				<button
