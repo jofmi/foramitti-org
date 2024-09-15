@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.postcss';
-
 	// Highlight JS
 	import hljs from 'highlight.js/lib/core';
 	import 'highlight.js/styles/github-dark.css';
@@ -25,6 +24,7 @@
 		offset,
 		arrow
 	} from '@floating-ui/dom';
+
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>

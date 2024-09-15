@@ -2,29 +2,23 @@
 	import Icon from '@iconify/svelte';
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	import { Modal, getModalStore } from '@skeletonlabs/skeleton';
-	import type {
-		ModalSettings,
-		ModalComponent,
-		ModalStore
-	} from '@skeletonlabs/skeleton';
-
+	import type { Project } from '$lib/types';
 	import Impressum from '$lib/impressum.svelte';
 	import Privacy from '$lib/privacy.svelte';
+	import projectModal from '$lib/projectModal.svelte';
 
-	const modalRegistry: Record<string, ModalComponent> = {
-		Impressum: { ref: Impressum },
-		Privacy: { ref: Privacy }
-	};
 	initializeStores();
 	const modalStore = getModalStore();
-	const impressum: ModalSettings = {
-		type: 'component',
-		component: 'Impressum'
-	};
-	const privacy: ModalSettings = {
-		type: 'component',
-		component: 'Privacy'
-	};
+
+	function openProjectModal(project: Project) {
+		modalStore.trigger({
+			type: 'component',
+			component: {
+				ref: projectModal,
+				props: { project: project }
+			}
+		});
+	}
 
 	const icons = [
 		{
@@ -59,6 +53,11 @@
 			href: 'https://radius.co.at'
 		},
 		{
+			name: 'raumcoop',
+			logo: 'images/logos/raumcoop.png',
+			href: 'https://raumcoop.at/'
+		},
+		{
 			name: 'convive',
 			logo: 'images/logos/convive.svg',
 			href: 'https://convive.io'
@@ -75,41 +74,60 @@
 		}
 	];
 
-	const projects = [
+	const projects: Project[] = [
 		{
-			href: 'https://github.com/MILA-Wien/mila-server',
-			date: '2022 - heute',
-			title: 'MILA Mitglieder-Plattform',
-			tags: ['Open-Source', 'Partizipation', 'Datenbank'],
-			subtitle:
-				'Schichtenverwaltungs- und Datenbanksystem für den MILA Mitmach-Supermarkt'
-		},
-		{
-			href: 'https://augustin.or.at/mit-bargeld-oder-karte/',
-			title: 'Augustina',
-			date: '2023',
+			date: '2022-2024',
+			title: 'Mein MILA',
 			tags: ['Open-Source'],
-			subtitle: 'Bargeldloses Bezahlsystem für Straßenzeitungen'
+			summary:
+				'Mitgliederplattform und Datenbanksystem für den MILA Mitmach-Supermarkt',
+			description: `Die MILA Mitgliederplattform "Mein MILA" ist ein partizipatives Tool für den [MILA-Mitmach-Supermarkt e. G.](https://mila.wien). Über die Plattform können Nutzer\*innen einen Beitrittsantrag stellen, sich für Arbeitsschichten und Urlaube eintragen sowie ihre persönlichen Daten aktualisieren.
+
+Das Backend der Plattform ist ein umfassendes Datenbanksystem, das zur Verwaltung von Mitgliederdaten, Rechnungen, Arbeitsschichten und automatischem E-Mail-Versand dient.
+
+Die Mitgliederplattform ist seit 2022 aktiv für die über 700 Mitglieder der Genossenschaft im Einsatz und wird laufend erweitert. 
+
+Dieses Projekt wurde vom [AK Digifond](https://wien.arbeiterkammer.at/digifonds) gefördert und in Zusammenarbeit mit [convive*](https://www.convive.io/) realisiert.
+
+**Open-Source Technologien**: Nuxt, Keycloak, Directus, PostgreSQL, Docker`,
+			repositoryUrl: 'https://github.com/MILA-Wien/mila-server',
+			images: [
+				'images/projects/meinmila_1.png',
+				'images/projects/meinmila_2.png',
+				'images/projects/meinmila_3.png'
+			]
 		},
 		{
-			href: 'https://github.com/jofmi/collectivo',
-			date: '2022',
-			title: 'Collectivo',
-			tags: ['Open-Source', 'Partizipation', 'Datenbank'],
-			subtitle:
-				'Open-Source Template für die Entwicklung von digitalen Partizipations-Plattformen'
+			date: '2023',
+			title: 'Augustina',
+			summary:
+				'Bargeldloses Bezahlsystem und Verwaltungsoberfläche für Straßenzeitungen',
+			tags: ['Open-Source'],
+			description: `Das Bezahlsystem Augustina wurde 2023 für die Straßenzeitung Augustin entwickelt und ist seitdem aktiv im Einsatz. Es ermöglicht bargeldlose Zahlungen auf der Straße und dient gleichzeitig als Online-Shop und Verwaltungssystem.
+
+Dieses Projekt wurde vom [AK Digifond](https://wien.arbeiterkammer.at/digifonds) gefördert und in Zusammenarbeit mit [convive*](https://www.convive.io/) realisiert.
+
+**Augustin Blog:** [Mit Bargeld oder Karte?](https://augustin.or.at/mit-bargeld-oder-karte/)
+
+**Open-Source Technologien**: Vue, Go, PostgreSQL, Docker`,
+			repositoryUrl: 'https://github.com/augustin-wien/augustina-backend'
 		},
 		{
-			href: 'https://agentpy.readthedocs.io/en/latest/',
+			repositoryUrl: 'https://github.com/jofmi/agentpy',
 			title: 'AgentPy',
 			date: '2021',
-			subtitle:
-				'Wissenschaftliches Software-Paket für die Simulation von agenten-basierten Modellen'
+			summary:
+				'Wissenschaftliches Software-Paket für agenten-basierte Simulationsmodelle',
+			description: `AgentPy ist ein Open-Source-Paket für die Entwicklung und Analyse agenten-basierter Modelle in Python. Das Framework integriert die Aufgaben der Modellgestaltung, interaktiver Simulationen, numerischer Experimente und Datenanalyse in einer einzigen Entwicklungs-Umgebung. Das Paket ist für interaktives Programmieren mit IPython und Jupyter optimiert.
+
+Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
+			tags: ['Open-Source', 'Python']
 		}
 	];
 </script>
 
-<Modal components={modalRegistry} />
+<Modal />
+<!-- <Modal components={modalRegistry} /> -->
 
 <div class="h-full mx-auto flex justify-center items-center">
 	<div class="space-y-10 sm:space-y-20 max-w-5xl w-full p-10 md:p-24 lg:mt-35">
@@ -162,7 +180,7 @@
 				<div class="pf-box w-full px-6 py-5 space-y-2">
 					<h3 class="h3">Software-Entwicklung</h3>
 					<p class="text-md">
-						Ich biete maßgeschneiderte Lösungen für Datenbanksysteme und
+						Ich biete maßgeschneiderte Lösungen für Datenbanken, Apps und
 						digitale Plattformen mit einem Fokus auf Open-Source Technologien.
 					</p>
 					<p class="text-md">
@@ -178,8 +196,8 @@
 						Prozessen und für Partizipation und Selbstorganisation.
 					</p>
 					<p>
-						Dabei liegt mein Fokus auf der Integration von sozialen und
-						ökologischen Aspekten in die Wirtschafts- und Organisationsformen.
+						Darüber hinaus biete ich Forschungsleistungen wie Workshops,
+						Umfragen, Datenerhebungen, Analysen und Simulationen an.
 					</p>
 				</div>
 			</div>
@@ -187,22 +205,22 @@
 
 		<!-- References block -->
 		<div id="projects" class="space-y-6">
-			<h2 class="h2">Referenzen</h2>
+			<h2 class="h2">Projekte</h2>
 
 			<div
 				id="projects"
 				class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
 			>
-				{#each projects as { title, subtitle, date, href }}
-					<a {href} target="_blank">
+				{#each projects as project}
+					<button on:click={() => openProjectModal(project)}>
 						<div class="pf-box h-full px-6 py-5 space-y-2">
 							<div class="flex flex-col space-y-2 m-1">
-								<h3 class="h3">{title}</h3>
-								<p class="text-sm italic">{date}</p>
-								<p>{subtitle}</p>
+								<h3 class="h3">{project.title}</h3>
+								<p class="text-sm italic">{project.date}</p>
+								<p>{project.summary}</p>
 							</div>
 						</div>
-					</a>
+					</button>
 				{/each}
 			</div>
 		</div>
@@ -265,7 +283,7 @@
 
 		<div class="pf-box px-6 py-5 text-lg flex flex-wrap items-end">
 			<div class="w-full sm:w-1/2">
-				<span class="font-semibold">Joël Foramitti</span>
+				<span class="font-semibold">Joël Foramitti, Ph.D.</span>
 				{#each icons as { label, icon, href }}
 					<a {href} target="_blank" class="flex flex-row items-center gap-2">
 						<Icon {icon} class="" />
@@ -277,13 +295,21 @@
 			<div class="flex flex-col items-start sm:items-end">
 				<button
 					class="link-on-white"
-					on:click={() => modalStore.trigger(impressum)}
+					on:click={() =>
+						modalStore.trigger({
+							type: 'component',
+							component: { ref: Impressum }
+						})}
 				>
 					Impressum
 				</button>
 				<button
 					class="link-on-white"
-					on:click={() => modalStore.trigger(privacy)}
+					on:click={() =>
+						modalStore.trigger({
+							type: 'component',
+							component: { ref: Privacy }
+						})}
 				>
 					Datenschutz
 				</button>
@@ -294,7 +320,7 @@
 
 <style lang="postcss">
 	.pf-box {
-		@apply bg-white/60 hover:bg-white duration-150 drop-shadow-sm rounded-md text-black;
+		@apply bg-white/60 hover:bg-white duration-150 drop-shadow-sm rounded-md text-black text-left;
 	}
 
 	.link-on-white {
