@@ -39,6 +39,8 @@
 		"bits-ui": "^0.21.13",
 		"clsx": "^2.1.1",
 		"lucide-svelte": "^0.441.0",
+		"marked": "^14.1.2",
+		"mdsvex": "^0.12.3",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1"
 	}

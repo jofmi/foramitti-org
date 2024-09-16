@@ -1,11 +1,36 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import type { Project } from '$lib/types';
+	import * as Dialog from '$lib/components/ui/dialog';
+	import { marked } from 'marked';
+	// import { marked } from '$lib/utils';
 	// import Impressum from '$lib/impressum.svelte';
 	// import Privacy from '$lib/privacy.svelte';
 	// import projectModal from '$lib/projectModal.svelte';
 
+	const renderer: any = {
+		link(href: any) {
+			const link = marked.Renderer.prototype.link.call(this, href);
+			return link.replace('<a', "<a target='_blank' class='marked-link'");
+		}
+	};
+
+	marked.use({ renderer });
+
 	function openProjectModal(project: Project) {}
+
+	const impressum = `# Impressum
+Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch,
+§63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz.
+
+Joël Foramitti  
+Tivoligasse 38/1/7  
+1120 Wien  
+Österreich
+
+Unternehmensgegenstand: IT Dienstleistungen  
+UID-Nummer: ATU80431267  
+E-Mail: info@foramitti.org`;
 
 	const icons = [
 		{
@@ -254,7 +279,13 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 			<div class="grow"></div>
 			<div class="flex flex-col items-start sm:items-end">
 				<!-- on:click={} -->
-				<button class="link-on-white"> Impressum </button>
+				<Dialog.Root>
+					<Dialog.Trigger><div class="link-on-white">Impressum</div></Dialog.Trigger>
+					<Dialog.Content>
+						{@html marked(impressum)}
+					</Dialog.Content>
+				</Dialog.Root>
+
 				<button class="link-on-white"> Datenschutz </button>
 			</div>
 		</div>

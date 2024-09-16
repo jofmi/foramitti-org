@@ -84,4 +84,7 @@
 	h3 {
 		@apply text-xl font-bold;
 	}
+	.marked-link {
+		@apply font-semibold no-underline;
+	}
 }
