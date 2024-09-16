@@ -3,10 +3,6 @@
 	import type { Project } from '$lib/types';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { marked } from 'marked';
-	// import { marked } from '$lib/utils';
-	// import Impressum from '$lib/impressum.svelte';
-	// import Privacy from '$lib/privacy.svelte';
-	// import projectModal from '$lib/projectModal.svelte';
 
 	const renderer: any = {
 		link(href: any) {
@@ -15,9 +11,13 @@
 		}
 	};
 
-	marked.use({ renderer });
+	let imageModalOpen = false;
+	function setOpen() {
+		imageModalOpen = !imageModalOpen;
+	}
+	let imageModalSrc = '';
 
-	function openProjectModal(project: Project) {}
+	marked.use({ renderer });
 
 	const impressum = `# Impressum
 Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch,
@@ -31,6 +31,52 @@ Tivoligasse 38/1/7
 Unternehmensgegenstand: IT Dienstleistungen  
 UID-Nummer: ATU80431267  
 E-Mail: info@foramitti.org`;
+
+	const privacy = `# Datenschutzerklärung
+
+## Datenschutz
+
+Der Schutz Ihrer persönlichen Daten ist uns wichtig. Wir verarbeiten Ihre
+Daten auf Grundlage der geltenden gesetzlichen Bestimmungen (EU
+Datenschutz-Grundverordnung DSGVO, TKG 2003). In diesen
+Datenschutzinformationen informieren wir Sie über die wichtigsten Aspekte
+der Datenverarbeitung im Rahmen unserer Website.
+
+Die Nutzung unserer Webseite ist in der Regel ohne die Angabe
+personenbezogener Daten möglich. Sollten Sie, z.B. zum Zwecke der
+Kontaktaufnahme persönliche Daten eingeben, geben wir die notwendigen
+Informationen an Firmen weiter, die in unserem Auftrag Daten verarbeiten
+(z.B. unser Email und Cloud Anbieter). Wir beauftragen ausschließlich
+Firmen, die sich der EU Datenschutz-Grundverordnung unterwerfen.
+
+## Server Protokolle
+
+Der Server, von dem diese Webseite bereitgestellt wird, speichert
+Informationen die von Ihrem Browser automatisch an uns übermittelt werden,
+in sogenannten Log-Files. Diese Daten dienen der technischen Überwachung
+des Webservers. Sie beinhalten folgende Informationen: Browsertyp und
+Browserversion, Verwendetes Betriebssystem, Referrer URL (also die Seite,
+von der Sie zu uns gekommen sind), Die IP Adresse des zugreifenden
+Computers, Uhrzeit der Anfrage
+
+## Verschlüsselte Übertragung
+
+Diese Webseite nutzt aus Gründen der Sicherheit und des Datenschutzes eine
+SSL Verschlüsselung, die verhindert, dass Dritte die von Ihnen
+eingegebenen Daten auf dem Übertragungsweg abfangen und lesen können. Sie
+erkennen die aktive Verschlüsselung an dem grünen Vorhängeschloss oder
+ähnlichen Symbolen in der Adresszeile Ihres Browsers.
+
+## Ihre Rechte
+
+Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung,
+Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch
+zu. Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das
+Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche sonst
+in einer Weise verletzt worden sind, können Sie sich bei der
+Aufsichtsbehörde beschweren. In Österreich ist dies die
+Datenschutzbehörde.
+`;
 
 	const icons = [
 		{
@@ -135,6 +181,12 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 	];
 </script>
 
+<Dialog.Root open={imageModalOpen} onOpenChange={setOpen}>
+	<Dialog.ContentWide>
+		<img src={imageModalSrc} alt="Project" class=" rounded-md object-contain" />
+	</Dialog.ContentWide>
+</Dialog.Root>
+
 <div class="mx-auto flex h-full items-center justify-center">
 	<div class="lg:mt-35 w-full max-w-5xl space-y-10 p-10 sm:space-y-20 md:p-24">
 		<div id="pf-title" class="flex flex-row items-center justify-between gap-5 md:gap-10">
@@ -143,7 +195,7 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 				<p class="mb-4 text-xl italic md:text-2xl">Ökologischer Ökonom & Software Entwickler</p>
 				<div class="justify-left flex flex-wrap space-x-4 text-3xl">
 					{#each icons as { name, icon, href }}
-						<a {href} target="_blank"><Icon {icon} class="duration-100 hover:scale-[1.04]" /></a>
+						<a {href} target="_blank"><Icon {icon} class="" /></a>
 					{/each}
 				</div>
 			</div>
@@ -202,15 +254,51 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 
 			<div id="projects" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
 				{#each projects as project}
-					<button on:click={() => openProjectModal(project)}>
-						<div class="pf-box h-full space-y-2 px-6 py-5">
-							<div class="m-1 flex flex-col space-y-2">
-								<h3 class="h3">{project.title}</h3>
-								<p class="text-sm italic">{project.date}</p>
-								<p>{project.summary}</p>
+					<Dialog.Root>
+						<Dialog.Trigger>
+							<div class="pf-box h-full space-y-2 px-6 py-5">
+								<div class="m-1 flex flex-col space-y-2">
+									<h3 class="h3">{project.title}</h3>
+									<p class="text-sm italic">{project.date}</p>
+									<p>{project.summary}</p>
+								</div>
 							</div>
-						</div>
-					</button>
+						</Dialog.Trigger>
+						<Dialog.Content>
+							<div class="flex flex-row justify-between">
+								<h2 class="h2">{project.title}</h2>
+								<a href={project.repositoryUrl} target="_blank">
+									<Icon icon="bi:github" class="text-4xl duration-100 " />
+								</a>
+							</div>
+							<div class="flex flex-wrap gap-2 pb-4" id="modal-tags">
+								<span class="rounded bg-slate-200 px-2 py-1">{project.date}</span>
+								{#each project.tags || [] as tag}
+									<span class="rounded bg-slate-200 px-2 py-1">{tag}</span>
+								{/each}
+							</div>
+
+							{@html marked(project.description)}
+
+							{#if project.images && project.images.length > 0}
+								<div class="flex flex-wrap gap-4 pt-6">
+									{#each project.images as image}
+										<button
+											on:click={() => {
+												imageModalSrc = image;
+												imageModalOpen = true;
+											}}
+											><img
+												src={image}
+												alt={project.title}
+												class=" h-56 rounded-md object-contain"
+											/></button
+										>
+									{/each}
+								</div>
+							{/if}
+						</Dialog.Content>
+					</Dialog.Root>
 				{/each}
 			</div>
 		</div>
@@ -259,7 +347,7 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 		<div>
 			<a href="mailto:info@foramitti.org">
 				<div
-					class="btn center flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-5 text-lg font-bold text-white drop-shadow-md transition hover:scale-[1.02] md:text-2xl"
+					class="btn center flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-5 text-lg font-bold text-white drop-shadow-md transition hover:bg-primary/90 md:text-2xl"
 				>
 					<Icon icon="bi:envelope-at-fill" class="mr-2" /> Jetzt Kontakt aufnehmen
 				</div>
@@ -278,15 +366,18 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 			</div>
 			<div class="grow"></div>
 			<div class="flex flex-col items-start sm:items-end">
-				<!-- on:click={} -->
 				<Dialog.Root>
 					<Dialog.Trigger><div class="link-on-white">Impressum</div></Dialog.Trigger>
 					<Dialog.Content>
 						{@html marked(impressum)}
 					</Dialog.Content>
 				</Dialog.Root>
-
-				<button class="link-on-white"> Datenschutz </button>
+				<Dialog.Root>
+					<Dialog.Trigger><div class="link-on-white">Datenschutz</div></Dialog.Trigger>
+					<Dialog.Content>
+						{@html marked(privacy)}
+					</Dialog.Content>
+				</Dialog.Root>
 			</div>
 		</div>
 	</div>
@@ -294,7 +385,7 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 
 <style>
 	.pf-box {
-		@apply rounded-md bg-white/60 text-left text-black drop-shadow-sm duration-150 hover:bg-white;
+		@apply rounded-md bg-white/60 text-left text-black drop-shadow-md duration-150 hover:bg-white/80;
 	}
 
 	.link-on-white {

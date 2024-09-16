@@ -49,6 +49,9 @@ const config: Config = {
 					foreground: 'hsl(var(--card-foreground) / <alpha-value>)'
 				}
 			},
+			dropSHadow: {
+				md: '0 5px 5px rgba(0,0,0,0.15)'
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
