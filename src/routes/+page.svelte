@@ -174,7 +174,7 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 	<div class="lg:mt-35 w-full max-w-5xl space-y-10 p-10 sm:space-y-20 md:p-24">
 		<div id="pf-title" class="flex flex-row items-center justify-between gap-5 md:gap-10">
 			<div class="w-2/3">
-				<h1 class="h1 mb-2">Joël Foramitti</h1>
+				<h1 class="h1 mb-2">Joël Foramitti, Ph.D.</h1>
 				<p class="mb-4 text-xl italic md:text-2xl">Ökologischer Ökonom & Software Entwickler</p>
 				<div class="justify-left flex flex-wrap space-x-4 text-3xl">
 					{#each icons as { name, icon, href }}
@@ -218,7 +218,7 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 				</div>
 
 				<div class="pf-box w-full space-y-2 px-6 py-5">
-					<h3 class="h3">Forschung & Beratung</h3>
+					<h3 class="h3">Beratung & Forschung</h3>
 					<p>
 						Ich biete Unterstützung bei der Entwicklung von Strukturen und Prozessen und für
 						Partizipation, Kooperation und Selbstorganisation.
