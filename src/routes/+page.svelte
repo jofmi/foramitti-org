@@ -11,12 +11,6 @@
 		}
 	};
 
-	let imageModalOpen = false;
-	function setOpen() {
-		imageModalOpen = !imageModalOpen;
-	}
-	let imageModalSrc = '';
-
 	marked.use({ renderer });
 
 	const impressum = `# Impressum
@@ -134,25 +128,19 @@ Datenschutzbehörde.
 
 	const projects: Project[] = [
 		{
-			date: '2022-2024',
+			date: '2024',
 			title: 'Mein MILA',
 			tags: ['Open-Source'],
 			summary: 'Mitgliederplattform und Datenbanksystem für den MILA Mitmach-Supermarkt',
-			description: `Die MILA Mitgliederplattform "Mein MILA" ist ein partizipatives Tool für den [MILA-Mitmach-Supermarkt e. G.](https://mila.wien). Über die Plattform können Nutzer\*innen einen Beitrittsantrag stellen, sich für Arbeitsschichten und Urlaube eintragen sowie ihre persönlichen Daten aktualisieren.
+			description: `Die MILA Mitgliederplattform "Mein MILA" ist ein partizipatives Tool für den [MILA-Mitmach-Supermarkt](https://mila.wien). Über die Plattform können Nutzer\*innen einen Beitrittsantrag einreichen, sich für Arbeitsschichten und Urlaube eintragen sowie ihre persönlichen Daten aktualisieren.
 
-Das Backend der Plattform ist ein umfassendes Datenbanksystem, das zur Verwaltung von Mitgliederdaten, Rechnungen, Arbeitsschichten und automatischem E-Mail-Versand dient.
+Die Plattform inkludiert ein umfassendes Datenbanksystem, das zur Verwaltung von Mitgliederdaten, Rechnungen, Arbeitsschichten und automatischem E-Mail-Versand dient.
 
-Die Mitgliederplattform ist seit 2022 aktiv für die über 700 Mitglieder der Genossenschaft im Einsatz und wird laufend erweitert. 
-
-Dieses Projekt wurde vom [AK Digifond](https://wien.arbeiterkammer.at/digifonds) gefördert und in Zusammenarbeit mit [convive*](https://www.convive.io/) realisiert.
+Mein MILA ist seit 2022 aktiv für die über 700 Mitglieder der Genossenschaft im Einsatz und wird laufend erweitert. Das Projekt wurde vom [AK Digifond](https://wien.arbeiterkammer.at/digifonds) gefördert und in Zusammenarbeit mit [convive*](https://www.convive.io/) realisiert.
 
 **Open-Source Technologien**: Nuxt, Keycloak, Directus, PostgreSQL, Docker`,
 			repositoryUrl: 'https://github.com/MILA-Wien/mila-server',
-			images: [
-				'images/projects/meinmila_1.png',
-				'images/projects/meinmila_2.png',
-				'images/projects/meinmila_3.png'
-			]
+			images: ['images/projects/meinmila_1.png', 'images/projects/meinmila_3.png']
 		},
 		{
 			date: '2023',
@@ -161,12 +149,13 @@ Dieses Projekt wurde vom [AK Digifond](https://wien.arbeiterkammer.at/digifonds)
 			tags: ['Open-Source'],
 			description: `Das Bezahlsystem Augustina wurde 2023 für die Straßenzeitung Augustin entwickelt und ist seitdem aktiv im Einsatz. Es ermöglicht bargeldlose Zahlungen auf der Straße und dient gleichzeitig als Online-Shop und Verwaltungssystem.
 
-Dieses Projekt wurde vom [AK Digifond](https://wien.arbeiterkammer.at/digifonds) gefördert und in Zusammenarbeit mit [convive*](https://www.convive.io/) realisiert.
+Das Projekt wurde vom [AK Digifond](https://wien.arbeiterkammer.at/digifonds) gefördert und in Zusammenarbeit mit [convive*](https://www.convive.io/) realisiert.
 
 **Augustin Blog:** [Mit Bargeld oder Karte?](https://augustin.or.at/mit-bargeld-oder-karte/)
 
 **Open-Source Technologien**: Vue, Go, PostgreSQL, Docker`,
-			repositoryUrl: 'https://github.com/augustin-wien/augustina-backend'
+			repositoryUrl: 'https://github.com/augustin-wien/augustina-backend',
+			images: ['images/projects/augustina_1.jpg']
 		},
 		{
 			repositoryUrl: 'https://github.com/jofmi/agentpy',
@@ -180,12 +169,6 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 		}
 	];
 </script>
-
-<Dialog.Root open={imageModalOpen} onOpenChange={setOpen}>
-	<Dialog.ContentWide>
-		<img src={imageModalSrc} alt="Project" class=" rounded-md object-contain" />
-	</Dialog.ContentWide>
-</Dialog.Root>
 
 <div class="mx-auto flex h-full items-center justify-center">
 	<div class="lg:mt-35 w-full max-w-5xl space-y-10 p-10 sm:space-y-20 md:p-24">
@@ -225,8 +208,8 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 				<div class="pf-box w-full space-y-2 px-6 py-5">
 					<h3 class="h3">Software-Entwicklung</h3>
 					<p class="text-md">
-						Ich biete maßgeschneiderte Lösungen für Datenbanken, Apps und digitale Plattformen mit
-						einem Fokus auf Open-Source Technologien.
+						Ich biete maßgeschneiderte Lösungen für digitale Plattformen, Apps und Datenbanksysteme
+						und mit einem Fokus auf Open-Source Technologien.
 					</p>
 					<p class="text-md">
 						Dabei begleite ich den gesamten Entwicklungs-Prozess von der gemeinsamen Konzeption bis
@@ -238,11 +221,11 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 					<h3 class="h3">Forschung & Beratung</h3>
 					<p>
 						Ich biete Unterstützung bei der Entwicklung von Strukturen und Prozessen und für
-						Partizipation und Selbstorganisation.
+						Partizipation, Kooperation und Selbstorganisation.
 					</p>
 					<p>
-						Darüber hinaus biete ich Forschungsleistungen wie Workshops, Umfragen, Datenerhebungen,
-						Analysen und Simulationen an.
+						Mein Angebot reicht von Beratung und Workshops bis hin zu Forschungsarbeiten wie
+						Datenerhebungen, Umfragen, Analysen und Simulationen.
 					</p>
 				</div>
 			</div>
@@ -259,41 +242,43 @@ Dokumentation: [agentpy.readthedocs.io](https://agentpy.readthedocs.io)			`,
 							<div class="pf-box h-full space-y-2 px-6 py-5">
 								<div class="m-1 flex flex-col space-y-2">
 									<h3 class="h3">{project.title}</h3>
-									<p class="text-sm italic">{project.date}</p>
+									<p class="text-sm italic">
+										{project.date}
+										{#if project.repositoryUrl}
+											- Open-Source
+										{/if}
+									</p>
 									<p>{project.summary}</p>
 								</div>
 							</div>
 						</Dialog.Trigger>
 						<Dialog.Content>
-							<div class="flex flex-row justify-between">
-								<h2 class="h2">{project.title}</h2>
-								<a href={project.repositoryUrl} target="_blank">
-									<Icon icon="bi:github" class="text-4xl duration-100 " />
-								</a>
-							</div>
+							<h2 class="h2">{project.title}</h2>
+
 							<div class="flex flex-wrap gap-2 pb-4" id="modal-tags">
 								<span class="rounded bg-slate-200 px-2 py-1">{project.date}</span>
+
 								{#each project.tags || [] as tag}
 									<span class="rounded bg-slate-200 px-2 py-1">{tag}</span>
 								{/each}
+								{#if project.repositoryUrl}
+									<a href={project.repositoryUrl} target="_blank">
+										<span class="flex flex-row items-center gap-1 rounded bg-slate-200 px-2 py-1">
+											<Icon icon="bi:github" class="" />
+											GitHub
+										</span>
+									</a>
+								{/if}
 							</div>
 
 							{@html marked(project.description)}
 
 							{#if project.images && project.images.length > 0}
-								<div class="flex flex-wrap gap-4 pt-6">
+								<div class="flex flex-wrap gap-x-4 gap-y-8 pt-6">
 									{#each project.images as image}
-										<button
-											on:click={() => {
-												imageModalSrc = image;
-												imageModalOpen = true;
-											}}
-											><img
-												src={image}
-												alt={project.title}
-												class=" h-56 rounded-md object-contain"
-											/></button
-										>
+										<a href={image} target="_blank">
+											<img src={image} alt={project.title} class=" rounded-md object-contain" />
+										</a>
 									{/each}
 								</div>
 							{/if}
